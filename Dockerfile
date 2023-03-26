@@ -8,7 +8,7 @@ RUN curl "https://install.meteor.com/" | sh
 
 
 COPY . /usr/src
-RUN ls -la /usr/src
+RUN ls -la /usr/src/.meteor
 WORKDIR /usr/src
 
 RUN chmod -R 700 /usr/src/.meteor/local
