@@ -27,3 +27,6 @@ hot-module-replacement@0.5.2
 blaze-hot
 dev-error-overlay@0.1.1
 accounts-ui
+react-meteor-data
+react-template-helper
+gadicc:blaze-react-component

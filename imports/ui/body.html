@@ -13,11 +13,14 @@
     {{#if currentUser}}
       <form class="new-task">
           <input type="text" name="text" placeholder="Type to add new tasks" />
+          <input type="text" name="project" placeholder="Type Name of Project" />
       </form>
     {{/if}}
+    <div>{{> React component=InputComponent }}</div>
+    
 
     </header>
-
+    <div>{{> React component=List }}</div>
     <ul>
       {{#each tasks}}
         {{> task}}

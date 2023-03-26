@@ -1,25 +1,37 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { Tasks } from '../api/tasks.js';
 
 import './task.js';
 import './body.html';
+import HelloWorld from './components/HelloWorld.jsx';
+import List from './components/List.jsx';
+import InputComponent from './components/InputComponent.jsx';
 
 Template.body.onCreated(function bodyOnCreated() {
     this.state = new ReactiveDict();
     Meteor.subscribe('tasks');
-  });
+});
 
 Template.body.helpers({
+  HelloWorld() {
+    return HelloWorld;
+  },
+  List() {
+    return List
+  },
+  InputComponent() {
+    return InputComponent;
+  },
     tasks() {
         const instance = Template.instance();
         if (instance.state.get('hideCompleted')) {
-          // If hide completed is checked, filter tasks
           return Tasks.find({ checked: { $ne: true } }, { sort: { createdAt: -1 } });
         }
-        // Otherwise, return all of the tasks
         return Tasks.find({}, { sort: { createdAt: -1 } });
     },
     incompleteCount() {
@@ -29,17 +41,10 @@ Template.body.helpers({
 
 Template.body.events({
     'submit .new-task'(event) {
-      // Prevent default browser form submit
       event.preventDefault();
-  
-      // Get value from form element
       const target = event.target;
       const text = target.text.value;
-  
-      // Insert a task into the collection
       Meteor.call('tasks.insert', text);
-  
-      // Clear form
       target.text.value = '';
     },
     'change .hide-completed input'(event, instance) {
