@@ -6,7 +6,7 @@ ENV ROOT_URL="http://localhost:3000"
 
 RUN curl "https://install.meteor.com/" | sh
 
-
+ADD .meteor/local /usr/src/.meteor/local
 COPY . /usr/src
 RUN ls -la /usr/src/.meteor
 WORKDIR /usr/src
