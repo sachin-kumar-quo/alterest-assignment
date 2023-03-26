@@ -11,20 +11,12 @@
     {{> loginButtons}}
 
     {{#if currentUser}}
-      <form class="new-task">
-          <input type="text" name="text" placeholder="Type to add new tasks" />
-          <input type="text" name="project" placeholder="Type Name of Project" />
-      </form>
+      <div>{{> React component=InputComponent }}</div>
     {{/if}}
-    <div>{{> React component=InputComponent }}</div>
+    
     
 
     </header>
-    <div>{{> React component=List }}</div>
-    <ul>
-      {{#each tasks}}
-        {{> task}}
-      {{/each}}
-    </ul>
+    <div>{{> React component=List lists=tasks }}</div>
   </div>
 </body>

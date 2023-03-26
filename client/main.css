@@ -56,12 +56,15 @@ form {
   background: transparent;
   border: none;
   width: 50%;
-  padding-right: 80px;
   font-size: 1em;
 }
 
 .new-task input:focus{
   outline: 0;
+}
+
+.error{
+  color: red;
 }
 
 ul {
@@ -124,4 +127,9 @@ header .hide-completed {
   .new-task input {
     padding-bottom: 5px;
   }
+}
+
+.project{
+  padding-left: 15px;
+  font-size: 18px;
 }
