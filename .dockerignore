@@ -1,0 +1,38 @@
+# Ignore everything
+**
+
+# Include specific files and directories
+!package.json
+!package-lock.json
+!meteor/
+!.meteor/
+!.meteor/**/*
+!build/
+!build/**/*
+!.dockerignore
+!.dockerignore/**/*
+!**/*.js
+!**/*.jsx
+!.env
+!.env.production
+!.env.staging
+!.env.local
+!.env.development
+!.env.test
+!node_modules/
+!node_modules/**/*
+!.next/
+!.next/**/*
+!public/
+!public/**/*
+!.babelrc
+!.eslintrc
+!.stylelintrc
+!.prettierrc
+!yarn.lock
+!LICENSE
+!README.md
+!.nvmrc
+
+# Exclude specific files and directories
+.meteor/local
