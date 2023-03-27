@@ -21,13 +21,17 @@ Template.body.helpers({
   },
   tasks() {
     const instance = Template.instance();
+    console.log(instance);
     if (instance.state.get("hideCompleted")) {
       return Tasks.find(
-        { checked: { $ne: true } },
+        { checked: { $ne: true }},
         { sort: { createdAt: -1 } }
       );
     }
-    return Tasks.find({}, { sort: { createdAt: -1 } });
+    return Tasks.find(
+      {},
+      { sort: { createdAt: -1 } }
+    );
   },
   incompleteCount() {
     return Tasks.find({ checked: { $ne: true } }).count();
